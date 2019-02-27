@@ -42,14 +42,14 @@ namespace Galaga_Excercise_1 {
 
         public void GameLoop() {
             while (win.IsRunning()) {
-                
+
                 gameTimer.MeasureTime();
                 eventBus.ProcessEvents();
-                
+
                 while (gameTimer.ShouldUpdate()) {
                     win.PollEvents();
                     player.Move();
-                    
+
 
 // Update game logic here
                 }
@@ -57,13 +57,13 @@ namespace Galaga_Excercise_1 {
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
                     player.RenderEntity();
-                    
+
                     // Trying to render enemy entities
                     foreach (var enemy in enemies) {
                         enemy.RenderEntity();
                     }
-                    
-                    
+
+
 // Render gameplay entities here
                     win.SwapBuffers();
                 }
@@ -84,17 +84,17 @@ namespace Galaga_Excercise_1 {
                         GameEventType.WindowEvent, this, "CLOSE_WINDOW", "", ""));
                 break;
             case "KEY_LEFT":
-                player.Direction(new Vec2F(-0.01f,0f));
+                player.Direction(new Vec2F(-0.01f, 0f));
                 break;
             case "KEY_RIGHT":
-                player.Direction(new Vec2F(0.01f,0f));
+                player.Direction(new Vec2F(0.01f, 0f));
                 break;
-                
+
             }
         }
 
         public void KeyRelease(string key) {
-            player.Direction(new Vec2F(0f,0f));
+            player.Direction(new Vec2F(0f, 0f));
         }
 
         public void ProcessEvent(GameEventType eventType,
@@ -125,12 +125,15 @@ namespace Galaga_Excercise_1 {
         public void AddEnemies() {
 
             for (int i = 0; i < 4; i++) {
-                
+
                 Enemy tempEnemy = new Enemy(this,
-                    new DynamicShape(new Vec2F(0.0f, -0.1f), new Vec2F(0.1f, 0.1f)),
-                    enemyStrides[i]);
+                    new DynamicShape(new Vec2F((float) i * 0.3f,  0.8f),
+                        new Vec2F(0.1f, 0.1f)),
+                    new ImageStride(80, enemyStrides)); //Enemy strides is the list of pictures that 
                 enemies.Add(tempEnemy);
             }
+
         }
     }
 }
+
