@@ -3,6 +3,7 @@ using DIKUArcade.Graphics;
 
 namespace Galaga_Excercise_1 {
     public class Enemy : Entity {
+        
         private Game game;
 
         public Enemy(Game game, DynamicShape shape, IBaseImage image) : base(shape, image) {
@@ -10,6 +11,3 @@ namespace Galaga_Excercise_1 {
         }
     }
 }
-
-// LOL TEST GIT
-// Hvad sker der nu
