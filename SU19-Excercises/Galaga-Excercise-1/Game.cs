@@ -15,7 +15,7 @@ namespace Galaga_Excercise_1 {
         private DIKUArcade.Timers.GameTimer gameTimer;
         private Player player;
         private List<Image> enemyStrides;
-        private List<Enemy> enemies;
+        private List<Enemy> enemies; 
         private GameEventBus<object> eventBus;
 
         public Game() {
@@ -23,13 +23,18 @@ namespace Galaga_Excercise_1 {
 // For the window, we recommend a 500x500 resolution (a 1:1 aspect ratio).
             win = new Window("lol", 500, 500);
             gameTimer = new GameTimer(60, 60);
+            
             player = new Player(this,
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
+            
             enemyStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
                 "BlueMonster.png"));
             enemies = new List<Enemy>();
             AddEnemies();
+            
+            PlayerShots = new List<PlayerShot>();
+            
             eventBus = new GameEventBus<object>();
             eventBus.InitializeEventBus(new List<GameEventType>() {
                 GameEventType.InputEvent, // key press / key release
@@ -39,6 +44,9 @@ namespace Galaga_Excercise_1 {
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
         }
+        
+        // List of playershots
+        public List<PlayerShot> PlayerShots { get; private set; }
 
         public void GameLoop() {
             while (win.IsRunning()) {
@@ -50,13 +58,17 @@ namespace Galaga_Excercise_1 {
                     win.PollEvents();
                     player.Move();
 
-
 // Update game logic here
                 }
 
                 if (gameTimer.ShouldRender()) {
                     win.Clear();
                     player.RenderEntity();
+                    
+                    // Create playerShots
+                    foreach (var playerShot in PlayerShots) {
+                        playerShot.RenderEntity();   
+                    }
 
                     // Trying to render enemy entities
                     foreach (var enemy in enemies) {
@@ -89,7 +101,9 @@ namespace Galaga_Excercise_1 {
             case "KEY_RIGHT":
                 player.Direction(new Vec2F(0.01f, 0f));
                 break;
-
+            case "KEY_SPACE":
+                player.Shoot();
+                break;
             }
         }
 
