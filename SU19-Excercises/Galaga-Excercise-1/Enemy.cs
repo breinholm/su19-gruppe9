@@ -13,3 +13,6 @@ namespace Galaga_Excercise_1 {
         }
     }
 }
+
+// LOL TEST GIT
+// Hvad sker der nu
