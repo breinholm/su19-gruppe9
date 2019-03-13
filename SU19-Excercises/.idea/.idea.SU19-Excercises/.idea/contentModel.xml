@@ -79,6 +79,7 @@
         <e p="Enemy.cs" t="Include" />
         <e p="Galaga-Excercise-1.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="OpenTK.dll.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="PlayerShot.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -88,11 +89,13 @@
         <e p="Score.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
       </e>
       <e p="Galaga-Exercise-2" t="IncludeRecursive">
         <e p="Enemy.cs" t="Include" />
-        <e p="Galaga-Excercise-2.csproj" t="IncludeRecursive" />
+        <e p="Galaga-Exercise-2.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="OpenTK.dll.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="PlayerShot.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -102,6 +105,7 @@
         <e p="Score.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
       </e>
       <e p="SU19-Excercises.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

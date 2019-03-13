@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9F11A047-F763-4D7D-88C3-87D70B6CE70A}</ProjectGuid>
+    <ProjectGuid>{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Galaga_Excercise_1</RootNamespace>
-    <AssemblyName>Galaga_Excercise_1</AssemblyName>
+    <RootNamespace>Galaga_Exercise_2</RootNamespace>
+    <AssemblyName>Galaga_Exercise_2</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
       <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,14 +52,14 @@
     <Compile Include="Score.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DIKUArcade\DIKUArcade\DIKUArcade.csproj">
-      <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
-      <Name>DIKUArcade</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DIKUArcade\DIKUArcade.csproj">
       <Project>{a1e4e4df-0967-4096-9e3c-fbc29b7d07dd}</Project>
       <Name>DIKUArcade</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
