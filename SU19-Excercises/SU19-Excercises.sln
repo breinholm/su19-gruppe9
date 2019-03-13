@@ -2,9 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Excercise-1", "Galaga-Excercise-1\Galaga-Excercise-1.csproj", "{9F11A047-F763-4D7D-88C3-87D70B6CE70A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Galaga-Exercise-2", "Galaga-Exercise-2\Galaga-Exercise-2.csproj", "{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIKUArcade", "DIKUArcade\DIKUArcade\DIKUArcade.csproj", "{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,13 +12,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C0FAFB6-418A-4B9F-AD2D-B4874B09E20D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E4E4DF-0967-4096-9E3C-FBC29B7D07DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F11A047-F763-4D7D-88C3-87D70B6CE70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F11A047-F763-4D7D-88C3-87D70B6CE70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

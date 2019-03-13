@@ -42,3 +42,14 @@ C:/Users/Søren_stat/Desktop/su19-gruppe9/su19-gruppe9/SU19-Excercises/Galaga-Ex
 /home/emilos/Documents/datalogi/su/su19-gruppe9/SU19-Excercises/Galaga-Excercise-1/obj/Debug/Galaga-Excercise-1.csproj.CopyComplete
 /home/emilos/Documents/datalogi/su/su19-gruppe9/SU19-Excercises/Galaga-Excercise-1/obj/Debug/Galaga_Excercise_1.exe
 /home/emilos/Documents/datalogi/su/su19-gruppe9/SU19-Excercises/Galaga-Excercise-1/obj/Debug/Galaga_Excercise_1.pdb
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\Galaga_Excercise_1.exe
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\Galaga_Excercise_1.pdb
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\DIKUArcade.dll
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\OpenTK.dll
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\DIKUArcade.pdb
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\bin\Debug\OpenTK.xml
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\obj\Debug\Galaga-Excercise-1.csprojAssemblyReference.cache
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\obj\Debug\Galaga-Excercise-1.csproj.CoreCompileInputs.cache
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\obj\Debug\Galaga-Excercise-1.csproj.CopyComplete
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\obj\Debug\Galaga_Excercise_1.exe
+C:\Users\Søren_stat\Desktop\su19-gruppe9\su19-gruppe9\su19-gruppe9\SU19-Excercises\Galaga-Excercise-1\obj\Debug\Galaga_Excercise_1.pdb
