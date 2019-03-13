@@ -1,6 +1,0 @@
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\bin\Debug\SU19_Excercises.exe
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\bin\Debug\SU19_Excercises.pdb
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\obj\Debug\SU19-Excercises.csprojAssemblyReference.cache
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\obj\Debug\SU19-Excercises.csproj.CoreCompileInputs.cache
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\obj\Debug\SU19_Excercises.exe
-C:\Users\Søren_stat\Desktop\su19-gruppe9\SU19-Excercises\SU19-Excercises\obj\Debug\SU19_Excercises.pdb
