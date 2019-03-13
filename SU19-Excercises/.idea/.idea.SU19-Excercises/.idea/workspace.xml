@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d9ec3f3e-83af-49eb-81c0-1f4c15a2a29a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SU19-Excercises/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/Galaga-Excercise-1.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/Galaga-Excercise-1.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/DIKUArcade.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/DIKUArcade.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/DIKUArcade.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/DIKUArcade.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/Galaga_Excercise_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/bin/Debug/Galaga_Excercise_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga-Excercise-1.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga-Excercise-1.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga-Excercise-1.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga-Excercise-1.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga_Excercise_1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Galaga-Excercise-1/obj/Debug/Galaga_Excercise_1.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SU19-Excercises.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SU19-Excercises.sln" afterDir="false" />
-    </list>
+    <list default="true" id="d9ec3f3e-83af-49eb-81c0-1f4c15a2a29a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,8 +112,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Score.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+            <state relative-caret-position="60">
+              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <marker date="1552484081890" expanded="false" signature="6:96" ph="..." />
                 <marker date="1552484081890" expanded="true" signature="127:1019" ph="{...}" />
@@ -319,6 +307,7 @@
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="Console" />
       <option name="PROJECT_TFM" value=".NETFramework,Version=v4.7.1" />
+      <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
       <method v="2">
         <option name="Build" enabled="true" />
       </method>
@@ -349,12 +338,12 @@
       <workItem from="1552482574662" duration="188000" />
       <workItem from="1552482887329" duration="454000" />
       <workItem from="1552483386189" duration="288000" />
-      <workItem from="1552483759532" duration="347000" />
+      <workItem from="1552483759532" duration="1259000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21483000" />
+    <option name="totallyTimeSpent" value="22395000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -705,8 +694,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Galaga-Exercise-2/Score.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        <state relative-caret-position="60">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
             <marker date="1552484081890" expanded="false" signature="6:96" ph="..." />
             <marker date="1552484081890" expanded="true" signature="127:1019" ph="{...}" />
