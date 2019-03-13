@@ -10,4 +10,4 @@ namespace Galaga_Exercise_2.Squadrons {
         
         void CreateEnemies(List<Image> enemyStrides);
     }
-}
+}    

@@ -8,6 +8,8 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
 using Galaga_Excercise_2.GalagaEntities;
+using Galaga_Exercise_2.Squadrons;
+
 namespace Galaga_Excercise_2 {
     public class Game : IGameEventProcessor<object> {
         private List<Enemy> enemies;
@@ -20,6 +22,8 @@ namespace Galaga_Excercise_2 {
         private Player player;
         private Score score;
         private Window win;
+        private BlueSquadron Squadron;
+        private List<ISquadron> enemySquadrons;
 
         public Game() {
             win = new Window("lol", 500, 500);
@@ -36,6 +40,14 @@ namespace Galaga_Excercise_2 {
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.PlayerEvent
             });
+            // The enemyStrides list includes four different versions of the monster images 
+            // allowing for a moving animation of the monster.
+            enemyStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
+                "BlueMonster.png"));
+            
+            
+            Squadron = new BlueSquadron(this);
+            Squadron.CreateEnemies(enemyStrides);
            
             
             win.RegisterEventBus(eventBus);
@@ -46,10 +58,8 @@ namespace Galaga_Excercise_2 {
 
             
 
-            // The enemyStrides list includes four different versions of the monster images 
-            // allowing for a moving animation of the monster.
-            enemyStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
-                "BlueMonster.png"));
+          
+            
             enemies = new List<Enemy>();
             AddEnemies();
             
@@ -120,6 +130,7 @@ namespace Galaga_Excercise_2 {
                     foreach (var enemy in enemies) {
                         enemy.RenderEntity();
                     }
+                    Squadron.Enemies.RenderEntities();
 
                     explosions.RenderAnimations();
                     score.RenderScore();
@@ -236,6 +247,7 @@ namespace Galaga_Excercise_2 {
                         score.AddPoint();
                     }
                 }
+                
             }
 
             var newEnemies = new List<Enemy>();
