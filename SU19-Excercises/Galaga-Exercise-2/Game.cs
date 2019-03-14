@@ -12,8 +12,14 @@ using Galaga_Exercise_2.Squadrons;
 
 namespace Galaga_Excercise_2 {
     public class Game : IGameEventProcessor<object> {
+        
+        // Gets replaced by enemy lists inside squadron lists
         private List<Enemy> enemies;
-        private List<Image> enemyStrides;
+        
+        private List<Image> blueMonsterStrides;
+        
+        // Add more strides
+        
         public GameEventBus<object> eventBus;
         private int explosionLength;
         private AnimationContainer explosions;
@@ -22,8 +28,10 @@ namespace Galaga_Excercise_2 {
         private Player player;
         private Score score;
         private Window win;
-        private BlueSquadron Squadron;
-        private List<ISquadron> enemySquadrons;
+        
+        private VSquadron VSquadron;
+        
+        public List<ISquadron> enemySquadrons;
 
         public Game() {
             win = new Window("lol", 500, 500);
@@ -31,6 +39,8 @@ namespace Galaga_Excercise_2 {
             player = new Player(this,
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
+            
+            enemySquadrons = new List<ISquadron>();
             
             // eventBus handles events and let's different modules of the program communicate in a
             // streamlined manner through broadcasting of and subscription to events. 
@@ -40,33 +50,24 @@ namespace Galaga_Excercise_2 {
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.PlayerEvent
             });
-            // The enemyStrides list includes four different versions of the monster images 
+            // The blueMonsterStrides list includes four different versions of the monster images 
             // allowing for a moving animation of the monster.
-            enemyStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
+            blueMonsterStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
                 "BlueMonster.png"));
             
-            
-            Squadron = new BlueSquadron(this);
-            Squadron.CreateEnemies(enemyStrides);
-           
+            VSquadron = new VSquadron(this);
+            VSquadron.CreateEnemies(blueMonsterStrides);
             
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
             eventBus.Subscribe(GameEventType.WindowEvent, this);
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
-
-
             
-
-          
-            
+            // Shall be replaced by enemy lists inside squadrons lists
             enemies = new List<Enemy>();
             AddEnemies();
-            
 
             PlayerShots = new List<PlayerShot>();
-
-            
 
             explosionStrides = ImageStride.CreateStrides(8,
                 Path.Combine("Assets", "Images", "Explosion.png"));
@@ -108,30 +109,30 @@ namespace Galaga_Excercise_2 {
         ///     a fixed timer to gain independence of platform architecture.
         /// </summary>
         public void GameLoop() {
+            
             while (win.IsRunning()) {
+                
                 gameTimer.MeasureTime();
                 eventBus.ProcessEvents();
-               
 
                 while (gameTimer.ShouldUpdate()) {
+                    
                     win.PollEvents();
                     player.Move();
                     IterateShots();
                 }
 
                 if (gameTimer.ShouldRender()) {
+                    
                     win.Clear();
                     player.RenderEntity();
 
-                    foreach (var playerShot in PlayerShots) {
-                        playerShot.RenderEntity();
-                    }
+                    foreach (var playerShot in PlayerShots) { playerShot.RenderEntity(); }
 
-                    foreach (var enemy in enemies) {
-                        enemy.RenderEntity();
-                    }
-                    Squadron.Enemies.RenderEntities();
-
+                    foreach (var enemy in enemies) { enemy.RenderEntity(); }
+                    
+                    VSquadron.Enemies.RenderEntities();
+                    
                     explosions.RenderAnimations();
                     score.RenderScore();
                     win.SwapBuffers();
@@ -209,15 +210,16 @@ namespace Galaga_Excercise_2 {
         }
 
         /// <summary>
-        ///     Adds 4 enemies to the enemies-list with a distance of 0.2 between each enemy. Changing
-        ///     image every 80 milliseconds in order to animate movement.
+        /// WILL BE REPLACED? (by method inside ISquadron interface???)
+        /// Adds 4 enemies to the enemies-list with a distance of 0.2 between each enemy. Changing
+        /// image every 80 milliseconds in order to animate movement.
         /// </summary>
         public void AddEnemies() {
             for (var i = 0; i < 4; i++) {
                 var tempEnemy = new Enemy(this,
                     new DynamicShape(new Vec2F(i * 0.3f, 0.8f),
                         new Vec2F(0.1f, 0.1f)),
-                    new ImageStride(80, enemyStrides));
+                    new ImageStride(80, blueMonsterStrides));
 
                 enemies.Add(tempEnemy);
             }
@@ -247,7 +249,6 @@ namespace Galaga_Excercise_2 {
                         score.AddPoint();
                     }
                 }
-                
             }
 
             var newEnemies = new List<Enemy>();

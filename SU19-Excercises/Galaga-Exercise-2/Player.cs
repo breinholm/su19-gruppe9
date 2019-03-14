@@ -29,9 +29,6 @@ namespace Galaga_Excercise_2 {
                 case "DOWN":
                     KeyPress(gameEvent.Message);
                     break;
-                      
-
-                    
                 }
             }
         }
@@ -43,8 +40,7 @@ namespace Galaga_Excercise_2 {
             else if (message == "KEY_LEFT" && Shape.AsDynamicShape().Direction.X < 0) {
                 Direction(new Vec2F(0f, 0f));
             }
-            
-            }
+        }
 
         private void KeyPress(string message) {
             switch (message) {
