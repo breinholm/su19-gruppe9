@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_SU19-Excercises.1696921718.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_SU19-Excercises.-1162208601.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="DIKUArcade" t="IncludeRecursive">
         <e p="DIKUArcade.csproj" t="IncludeRecursive" />
@@ -97,6 +97,12 @@
           <e p="Enemy.cs" t="Include" />
         </e>
         <e p="Game.cs" t="Include" />
+        <e p="MovementStrategy" t="Include">
+          <e p="Down.cs" t="Include" />
+          <e p="IMovementStrategy.cs" t="Include" />
+          <e p="NoMove.cs" t="Include" />
+          <e p="ZigZagDown.cs" t="Include" />
+        </e>
         <e p="OpenTK.dll.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="PlayerShot.cs" t="Include" />
@@ -106,7 +112,9 @@
         </e>
         <e p="Score.cs" t="Include" />
         <e p="Squadrons" t="Include">
+          <e p="CrossSquadron.cs" t="Include" />
           <e p="ISquadron.cs" t="Include" />
+          <e p="LineSquadron.cs" t="Include" />
           <e p="VSquadron.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />

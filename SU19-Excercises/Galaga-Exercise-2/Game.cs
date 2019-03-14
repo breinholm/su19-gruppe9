@@ -8,13 +8,14 @@ using DIKUArcade.Math;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
 using Galaga_Excercise_2.GalagaEntities;
+using Galaga_Exercise_2.MovementStrategy;
 using Galaga_Exercise_2.Squadrons;
 
 namespace Galaga_Excercise_2 {
     public class Game : IGameEventProcessor<object> {
         
         // Gets replaced by enemy lists inside squadron lists
-        private List<Enemy> enemies;
+        
         
         private List<Image> blueMonsterStrides;
         
@@ -28,8 +29,9 @@ namespace Galaga_Excercise_2 {
         private Player player;
         private Score score;
         private Window win;
+        public List<IMovementStrategy> MovementStrategies;
         
-        private VSquadron VSquadron;
+       
         
         public List<ISquadron> enemySquadrons;
 
@@ -40,7 +42,28 @@ namespace Galaga_Excercise_2 {
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
             
+            
+            // The blueMonsterStrides list includes four different versions of the monster images 
+            // allowing for a moving animation of the monster.
+            blueMonsterStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
+                "BlueMonster.png"));
+            
             enemySquadrons = new List<ISquadron>();
+            new CrossSquadron(this).CreateEnemies(blueMonsterStrides);
+            
+            new VSquadron(this).CreateEnemies(blueMonsterStrides);
+            
+            new LineSquadron(this).CreateEnemies(blueMonsterStrides);
+            MovementStrategies = new List<IMovementStrategy>();
+            
+            new Down(this);
+            new ZigZagDown(this);
+            new NoMove(this);
+
+            
+
+            
+            
             
             // eventBus handles events and let's different modules of the program communicate in a
             // streamlined manner through broadcasting of and subscription to events. 
@@ -50,13 +73,9 @@ namespace Galaga_Excercise_2 {
                 GameEventType.WindowEvent, // messages to the window
                 GameEventType.PlayerEvent
             });
-            // The blueMonsterStrides list includes four different versions of the monster images 
-            // allowing for a moving animation of the monster.
-            blueMonsterStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
-                "BlueMonster.png"));
             
-            VSquadron = new VSquadron(this);
-            VSquadron.CreateEnemies(blueMonsterStrides);
+            
+           
             
             win.RegisterEventBus(eventBus);
             eventBus.Subscribe(GameEventType.InputEvent, this);
@@ -64,8 +83,8 @@ namespace Galaga_Excercise_2 {
             eventBus.Subscribe(GameEventType.PlayerEvent, player);
             
             // Shall be replaced by enemy lists inside squadrons lists
-            enemies = new List<Enemy>();
-            AddEnemies();
+            
+            
 
             PlayerShots = new List<PlayerShot>();
 
@@ -116,7 +135,7 @@ namespace Galaga_Excercise_2 {
                 eventBus.ProcessEvents();
 
                 while (gameTimer.ShouldUpdate()) {
-                    
+                    MoveSquadrons();
                     win.PollEvents();
                     player.Move();
                     IterateShots();
@@ -129,9 +148,13 @@ namespace Galaga_Excercise_2 {
 
                     foreach (var playerShot in PlayerShots) { playerShot.RenderEntity(); }
 
-                    foreach (var enemy in enemies) { enemy.RenderEntity(); }
                     
-                    VSquadron.Enemies.RenderEntities();
+                    
+                    //VSquadron.Enemies.RenderEntities();
+                    foreach (var squad in enemySquadrons) {
+                        squad.Enemies.RenderEntities();
+                    }
+                    
                     
                     explosions.RenderAnimations();
                     score.RenderScore();
@@ -209,19 +232,11 @@ namespace Galaga_Excercise_2 {
             }
         }
 
-        /// <summary>
-        /// WILL BE REPLACED? (by method inside ISquadron interface???)
-        /// Adds 4 enemies to the enemies-list with a distance of 0.2 between each enemy. Changing
-        /// image every 80 milliseconds in order to animate movement.
-        /// </summary>
-        public void AddEnemies() {
-            for (var i = 0; i < 4; i++) {
-                var tempEnemy = new Enemy(this,
-                    new DynamicShape(new Vec2F(i * 0.3f, 0.8f),
-                        new Vec2F(0.1f, 0.1f)),
-                    new ImageStride(80, blueMonsterStrides));
+        
 
-                enemies.Add(tempEnemy);
+        public void MoveSquadrons() {
+            foreach (var squadron in enemySquadrons) {
+                MovementStrategies[1].MoveEnemies(squadron.Enemies);
             }
         }
 
@@ -238,28 +253,45 @@ namespace Galaga_Excercise_2 {
                     shot.DeleteEntity();
                 }
 
-                foreach (var enemy in enemies) {
-                    if (CollisionDetection.Aabb(shot.Shape.AsDynamicShape(), enemy.Shape)
-                        .Collision) {
-                        enemy.DeleteEntity();
-                        AddExplosion(enemy.Shape.Position.X - enemy.Shape.Extent.X * 0.5f,
-                            enemy.Shape.Position.Y - enemy.Shape.Extent.Y * 0.5f,
-                            enemy.Shape.Extent.X * 2.0f,
-                            enemy.Shape.Extent.Y * 2.0f);
-                        score.AddPoint();
+                foreach (var squadron in enemySquadrons) {
+                    foreach (Enemy enemy in squadron.Enemies) {
+                        if (CollisionDetection.Aabb(shot.Shape.AsDynamicShape(), enemy.Shape)
+                            .Collision) {
+                            enemy.DeleteEntity();
+                            shot.DeleteEntity();
+                            AddExplosion(enemy.Shape.Position.X - enemy.Shape.Extent.X * 0.5f,
+                                enemy.Shape.Position.Y - enemy.Shape.Extent.Y * 0.5f,
+                                enemy.Shape.Extent.X * 2.0f,
+                                enemy.Shape.Extent.Y * 2.0f);
+                            score.AddPoint();
+                        }
                     }
                 }
-            }
 
-            var newEnemies = new List<Enemy>();
-            foreach (var enemy in enemies) {
-                if (!enemy.IsDeleted()) {
-                    newEnemies.Add(enemy);
-                }
+                
+                
             }
-
             // Updating list of enemies still alive
-            enemies = newEnemies;
+
+            foreach (var squadron in enemySquadrons) {
+                var newEnemies = new EntityContainer<Enemy>();
+                foreach (Enemy enemy in squadron.Enemies) {
+                    if (!enemy.IsDeleted()) {
+                        newEnemies.AddDynamicEntity(enemy);
+                    }
+                }
+
+                squadron.Enemies = newEnemies;
+
+
+                
+            }
+
+            
+            
+
+            
+           
 
             var newPlayerShots = new List<PlayerShot>();
             foreach (var shot in PlayerShots) {
