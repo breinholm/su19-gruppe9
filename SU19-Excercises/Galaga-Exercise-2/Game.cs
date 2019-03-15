@@ -139,6 +139,7 @@ namespace Galaga_Excercise_2 {
                     win.PollEvents();
                     player.Move();
                     IterateShots();
+                    RespawnSquadrons();
                 }
 
                 if (gameTimer.ShouldRender()) {
@@ -231,29 +232,34 @@ namespace Galaga_Excercise_2 {
                 break;
             }
         }
+        /// <summary>
+        /// Respawns squadron when it has been killed
+        /// </summary>
+
+        public void RespawnSquadrons() {
+            foreach (var squadron in enemySquadrons) {
+                if (squadron.Enemies.CountEntities() == 0) {
+                    squadron.CreateEnemies(blueMonsterStrides);
+                }
+            }
+        }
 
         /// <summary>
-        /// Moves every enemy
+        /// Moves every enemy according to a movementstrategy
         /// </summary>
 
         public void MoveSquadrons() {
-            foreach (var squadron in enemySquadrons) {
-                MovementStrategies[1].MoveEnemies(squadron.Enemies);        
+            int i = 0;
+            foreach (var squadron in enemySquadrons) {         
+                MovementStrategies[i].MoveEnemies(squadron.Enemies);
+                i++;
                 foreach (Enemy enemy in squadron.Enemies) { //Marking enemies when they walk out of screen
                     if (enemy.Shape.Position.Y < 0.0f) {
                         enemy.DeleteEntity();
                     }
                 }      
             }
-            foreach (var squadron in enemySquadrons) {
-                var newEnemies = new EntityContainer<Enemy>();
-                foreach (Enemy enemy in squadron.Enemies) {
-                    if (!enemy.IsDeleted()) {
-                        newEnemies.AddDynamicEntity(enemy);
-                    }
-                }
-                squadron.Enemies = newEnemies;
-            }
+            
         }
 
         /// <summary>
@@ -287,7 +293,7 @@ namespace Galaga_Excercise_2 {
                 
                 
             }
-            // Updating list of enemies still alive
+            // Removing dead enemies
 
             foreach (var squadron in enemySquadrons) {
                 var newEnemies = new EntityContainer<Enemy>();
@@ -302,12 +308,6 @@ namespace Galaga_Excercise_2 {
 
                 
             }
-
-            
-            
-
-            
-           
 
             var newPlayerShots = new List<PlayerShot>();
             foreach (var shot in PlayerShots) {

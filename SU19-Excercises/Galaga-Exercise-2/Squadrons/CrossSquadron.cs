@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
@@ -11,12 +12,14 @@ namespace Galaga_Exercise_2.Squadrons {
         public int MaxEnemies { get; }
         private int packSize = 5;
         
+        
         private Game game;
 
         public CrossSquadron(Game game) {
             MaxEnemies = 20;
             this.game = game; 
             Enemies = new EntityContainer<Enemy>();
+            
             
             // Adding this squadron to lists of squadrons in game
             this.game.enemySquadrons.Add(this);
@@ -30,7 +33,7 @@ namespace Galaga_Exercise_2.Squadrons {
                 
                 for (int i = 0; i < 3; i++) {
                     var tempEnemy = new Enemy(game,
-                        new DynamicShape(new Vec2F(i*0.05f+0.3f, -i*0.05f+0.5f),
+                        new DynamicShape(new Vec2F(i*0.05f+0.3f, -i*0.05f+0.7f),
                             new Vec2F(0.1f, 0.1f)),
                         new ImageStride(80, enemyStrides));
                     
@@ -40,7 +43,7 @@ namespace Galaga_Exercise_2.Squadrons {
                 for (int i = 0; i < 2; i++) {
                     
                     var tempEnemy = new Enemy(game,
-                        new DynamicShape(new Vec2F(-0.1f*i+0.4f, -0.1f*i+0.5f),
+                        new DynamicShape(new Vec2F(-0.1f*i+0.4f, -0.1f*i+0.7f),
                             new Vec2F(0.1f, 0.1f)),
                         new ImageStride(80, enemyStrides));
                     

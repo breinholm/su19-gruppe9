@@ -17,7 +17,10 @@ namespace Galaga_Excercise_2 {
         ///     an enemy.
         /// </summary>
         public void AddPoint() {
-            score += 1000 / (int) StaticTimer.GetElapsedSeconds();
+
+            score += 1000;
+
+
         }
 
         /// <summary>

@@ -34,7 +34,7 @@ namespace Galaga_Exercise_2.Squadrons {
                 
                 for (int i = 0; i < 3; i++) {
                     var tempEnemy = new Enemy(game,
-                        new DynamicShape(new Vec2F(i*0.05f+0.3f, -i*0.05f+0.5f),
+                        new DynamicShape(new Vec2F(i*0.05f+0.3f, -i*0.05f+1.05f),
                             new Vec2F(0.1f, 0.1f)),
                         new ImageStride(80, enemyStrides));
                     
@@ -44,7 +44,7 @@ namespace Galaga_Exercise_2.Squadrons {
                 for (int i = 0; i < 2; i++) {
                     
                     var tempEnemy = new Enemy(game,
-                        new DynamicShape(new Vec2F(i*0.05f+0.45f, i*0.05f+0.45f),
+                        new DynamicShape(new Vec2F(i*0.05f+0.45f, i*0.05f+0.95f),
                             new Vec2F(0.1f, 0.1f)),
                         new ImageStride(80, enemyStrides));
                     
