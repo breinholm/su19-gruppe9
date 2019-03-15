@@ -232,11 +232,27 @@ namespace Galaga_Excercise_2 {
             }
         }
 
-        
+        /// <summary>
+        /// Moves every enemy
+        /// </summary>
 
         public void MoveSquadrons() {
             foreach (var squadron in enemySquadrons) {
-                MovementStrategies[1].MoveEnemies(squadron.Enemies);
+                MovementStrategies[1].MoveEnemies(squadron.Enemies);        
+                foreach (Enemy enemy in squadron.Enemies) { //Marking enemies when they walk out of screen
+                    if (enemy.Shape.Position.Y < 0.0f) {
+                        enemy.DeleteEntity();
+                    }
+                }      
+            }
+            foreach (var squadron in enemySquadrons) {
+                var newEnemies = new EntityContainer<Enemy>();
+                foreach (Enemy enemy in squadron.Enemies) {
+                    if (!enemy.IsDeleted()) {
+                        newEnemies.AddDynamicEntity(enemy);
+                    }
+                }
+                squadron.Enemies = newEnemies;
             }
         }
 
