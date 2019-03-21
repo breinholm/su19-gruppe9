@@ -34,44 +34,49 @@ namespace Galaga_Exercise_3.GalagaStates {
             player = new Player(
                 new DynamicShape(new Vec2F(0.45f, 0.1f), new Vec2F(0.1f, 0.1f)),
                 new Image(Path.Combine("Assets", "Images", "Player.png")));
+            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            
+            blueMonsterStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
+                "BlueMonster.png"));
+            explosionStrides = ImageStride.CreateStrides(8,
+                Path.Combine("Assets", "Images", "Explosion.png"));
+            
+            PlayerShots = new List<PlayerShot>();
+            GameRunning.enemySquadrons = new List<ISquadron>();
+            GameRunning.MovementStrategies = new List<IMovementStrategy>();
+            
+            explosions = new AnimationContainer(8);
+            explosionLength = 500;
+            
+            score = new Score(new Vec2F(0.8f,0.8f),new Vec2F(0.2f,0.2f));
+            
+           
             NewGame();
-            
-            
+       
         }
 
         public void NewGame() {
             player.Shape.AsDynamicShape().SetPosition(new Vec2F(0.45f, 0.1f));
             
+            //Clearing lists for the new game
+            enemySquadrons.Clear();
 
-
-            // The blueMonsterStrides list includes four different versions of the monster images 
-            // allowing for a moving animation of the monster.
-            blueMonsterStrides = ImageStride.CreateStrides(4, Path.Combine("Assets", "Images",
-                "BlueMonster.png"));
-
-            GameRunning.enemySquadrons = new List<ISquadron>();
+            
             new CrossSquadron().CreateEnemies(blueMonsterStrides);
 
             new VSquadron().CreateEnemies(blueMonsterStrides);
 
             new LineSquadron().CreateEnemies(blueMonsterStrides);
-
-            GameRunning.MovementStrategies = new List<IMovementStrategy>();
-
-            GalagaBus.GetBus().Subscribe(GameEventType.PlayerEvent, player);
+            
+            MovementStrategies.Clear();
 
             new Down();
             new ZigZagDown();
             new NoMove();
-            GameRunning.PlayerShots = new List<PlayerShot>();
+            
+            GameRunning.PlayerShots.Clear();
 
-
-            explosionStrides = ImageStride.CreateStrides(8,
-                Path.Combine("Assets", "Images", "Explosion.png"));
-            explosions = new AnimationContainer(8);
-            explosionLength = 500;
-
-            score = new Score(new Vec2F(0.8f, 0.8f), new Vec2F(0.2f, 0.2f));
+            score.resetPoint();
         }
 
 
@@ -110,13 +115,14 @@ namespace Galaga_Exercise_3.GalagaStates {
                     foreach (Enemy enemy in squadron.Enemies) {
                         if (CollisionDetection.Aabb(shot.Shape.AsDynamicShape(), enemy.Shape)
                             .Collision) {
+                            score.AddPoint();
                             enemy.DeleteEntity();
                             shot.DeleteEntity();
                             AddExplosion(enemy.Shape.Position.X - enemy.Shape.Extent.X * 0.5f,
                                 enemy.Shape.Position.Y - enemy.Shape.Extent.Y * 0.5f,
                                 enemy.Shape.Extent.X * 2.0f,
                                 enemy.Shape.Extent.Y * 2.0f);
-                            score.AddPoint();
+                            
                         }
                     }
                 }
@@ -199,7 +205,7 @@ namespace Galaga_Exercise_3.GalagaStates {
 
         public void GameLoop() { }
         public void InitializeGameState() {
-            
+            NewGame();    
         }
 
         public void HandleKeyEvent(string keyValue, string keyAction) {

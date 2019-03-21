@@ -23,6 +23,10 @@ namespace Galaga_Exercise_3 {
 
         }
 
+        public void resetPoint() {
+            score = 0;
+        }
+
         /// <summary>
         ///     Displaying score in top right corner of game window.
         /// </summary>

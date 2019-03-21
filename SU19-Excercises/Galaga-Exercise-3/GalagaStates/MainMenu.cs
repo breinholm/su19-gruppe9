@@ -20,16 +20,19 @@ namespace Galaga_Exercise_3.GalagaState {
         private int quitGame = 0;
         private Vec2F quitGamePos;
 
+        /// <summary>
+        /// Initializing 
+        /// </summary>
         private MainMenu() {
-            newGamePos = new Vec2F(0.55f, 0.677f);
-            quitGamePos = new Vec2F(0.55f,0.527f);
+            newGamePos = new Vec2F(0.55f, 0.627f);
+            quitGamePos = new Vec2F(0.55f, 0.477f);
             backGroundImage = new Entity(
                 new StationaryShape(new Vec2F(0.0f, 0.0f), new Vec2F(1f, 1f)),
                 new Image(Path.Combine("Assets", "Images", "TitleImage.png")));
 
             menuButtons = new[] {
-                new Text("Quit Game", new Vec2F(0.40f, 0.35f), buttonSize),
-                new Text("New Game", new Vec2F(0.40f, 0.50f), buttonSize)
+                new Text("Quit Game", new Vec2F(0.40f, 0.30f), buttonSize),
+                new Text("New Game", new Vec2F(0.40f, 0.45f), buttonSize)
             };
             activeMenuButton = 1;
             maxMenuButtons = menuButtons.Length;
@@ -51,6 +54,7 @@ namespace Galaga_Exercise_3.GalagaState {
 
                 menuButtons[i].RenderText();
             }
+
             positionMarker.RenderEntity();
         }
 
@@ -60,7 +64,7 @@ namespace Galaga_Exercise_3.GalagaState {
                 case "KEY_UP":
                     if (activeMenuButton < maxMenuButtons - 1) {
                         activeMenuButton++;
-                        positionMarker.Shape.AsDynamicShape().Move(new Vec2F(0f,0.15f));
+                        positionMarker.Shape.AsDynamicShape().Move(new Vec2F(0f, 0.15f));
                     } else {
                         activeMenuButton = 0;
                         positionMarker.Shape.AsDynamicShape().SetPosition(quitGamePos);
@@ -69,9 +73,8 @@ namespace Galaga_Exercise_3.GalagaState {
                     break;
                 case "KEY_DOWN":
                     if (activeMenuButton > 0) {
-                        positionMarker.Shape.AsDynamicShape().Move(new Vec2F(0f,-0.15f));
+                        positionMarker.Shape.AsDynamicShape().Move(new Vec2F(0f, -0.15f));
                         activeMenuButton--;
-                        
                     } else {
                         activeMenuButton = maxMenuButtons - 1;
                         positionMarker.Shape.AsDynamicShape().SetPosition(newGamePos);

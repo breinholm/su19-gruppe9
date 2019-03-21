@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.Rider2018.3/system/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.Rider2018.3/system/resharper-host/local/Transient/ReSharperHost/v183/SolutionCaches/_SU19-Excercises.1696921718.00" t="ExcludeRecursive" />
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\Søren_stat\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Søren_stat\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SU19-Excercises.334626490.00" t="ExcludeRecursive" />
+    <e p="E:\TestingAssignment7\su19-gruppe9\SU19-Excercises" t="IncludeFlat">
       <e p="DIKUArcade" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="DIKUArcade.csproj" t="IncludeRecursive" />
         <e p="Entities" t="Include">
           <e p="DynamicShape.cs" t="Include" />
@@ -46,7 +47,9 @@
           <e p="Vec4F.cs" t="Include" />
           <e p="Vec4I.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
         <e p="OpenTK.dll.config" t="Include" />
+        <e p="packages.config" t="Include" />
         <e p="Physics" t="Include">
           <e p="CollisionData.cs" t="Include" />
           <e p="CollisionDetection.cs" t="Include" />
@@ -62,24 +65,24 @@
         <e p="Timers" t="Include">
           <e p="GameTimer.cs" t="Include" />
           <e p="StaticTimer.cs" t="Include" />
-          <e p="TimeSpanType.cs" t="Include" />
           <e p="TimedEvent.cs" t="Include" />
           <e p="TimedEventContainer.cs" t="Include" />
+          <e p="TimeSpanType.cs" t="Include" />
         </e>
         <e p="Utilities" t="Include">
           <e p="FileIO.cs" t="Include" />
           <e p="RandomGenerator.cs" t="Include" />
         </e>
         <e p="Window.cs" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
       </e>
       <e p="Galaga-Excercise-1" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Enemy.cs" t="Include" />
         <e p="Galaga-Excercise-1.csproj" t="IncludeRecursive" />
         <e p="Game.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
         <e p="OpenTK.dll.config" t="Include" />
+        <e p="packages.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="PlayerShot.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -87,11 +90,9 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="Score.cs" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
       </e>
       <e p="Galaga-Exercise-2" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Galaga-Exercise-2.csproj" t="IncludeRecursive" />
         <e p="GalagaEntities" t="Include">
           <e p="Enemy.cs" t="Include" />
@@ -103,7 +104,9 @@
           <e p="NoMove.cs" t="Include" />
           <e p="ZigZagDown.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
         <e p="OpenTK.dll.config" t="Include" />
+        <e p="packages.config" t="Include" />
         <e p="Player.cs" t="Include" />
         <e p="PlayerShot.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -117,11 +120,9 @@
           <e p="LineSquadron.cs" t="Include" />
           <e p="VSquadron.cs" t="Include" />
         </e>
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
-        <e p="packages.config" t="Include" />
       </e>
       <e p="Galaga-Exercise-3" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Galaga-Exercise-3.csproj" t="IncludeRecursive" />
         <e p="GalagaBus.cs" t="Include" />
         <e p="GalagaEntities" t="Include">
@@ -143,6 +144,7 @@
           <e p="NoMove.cs" t="Include" />
           <e p="ZigZagDown.cs" t="Include" />
         </e>
+        <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
@@ -154,11 +156,19 @@
           <e p="LineSquadron.cs" t="Include" />
           <e p="VSquadron.cs" t="Include" />
         </e>
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive" />
       </e>
-      <e p="SU19-Excercises.sln" t="IncludeFlat" />
+      <e p="Galaga-Testing" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Galaga-Testing.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="StateMachineTests.cs" t="Include" />
+        <e p="TransformStateTest.cs" t="Include" />
+      </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="SU19-Excercises.sln" t="IncludeFlat" />
     </e>
   </component>
 </project>
