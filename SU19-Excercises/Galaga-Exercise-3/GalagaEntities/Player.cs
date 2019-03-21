@@ -9,7 +9,7 @@ using Galaga_Exercise_3.GalagaStates;
 
 
 
-namespace Galaga_Exercise_3 {
+namespace Galaga_Exercise_3.GalagaEntities {
     public class Player : Entity, IGameEventProcessor<object>{
         // Loading image once instead of every time a shot is added
         private Image bullet = new Image(Path.Combine("Assets", "Images", "BulletRed2.png"));

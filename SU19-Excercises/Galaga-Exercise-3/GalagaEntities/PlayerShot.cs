@@ -2,7 +2,7 @@ using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.Math;
 
-namespace Galaga_Exercise_3 {
+namespace Galaga_Exercise_3.GalagaEntities {
     public class PlayerShot : Entity {
         
 
